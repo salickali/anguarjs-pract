@@ -1,15 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="LunchCheck" >
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Angular Js</title>
+    <title>Lunch Checker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <script src="angular.min.js" ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+    <script src='app.js'></script>
 </head>
 <body>
-    <h4>Bismillah</h4>
-    <h2>Allah hu akbr</h2>
+    <div class="container" ng-controller="LunchCheckController">
+        <h1>Lunch Checker</h1>
+        <div class="row text-center">
+            <div class="col-12">
+                <div class="ng-form-group">
+                    <input id="lunch-menu" type="text"
+                    placeholder="Enter the dishes with comma"
+                    class="form-control" ng-model="items">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group m-2">
+                    <button class="btn btn-primary" ng-click="Check()">Check If Too Much</button>
+                </div>
+            </div>
+        </div>
+   
+            <div class="form-group message">
+                <div ng-show="!empty && checked"  ng-bind="message" class="alert alert-success">{{message}}</div>
+                <div ng-show="empty" class="alert alert-danger" ng-bind="message">{{message}}</div>
+          
+            </div>
+      </div>
+   
+  
 </body>
 </html>
