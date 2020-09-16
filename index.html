@@ -16,8 +16,10 @@
 </head>
 <body>
     <div class="container" ng-controller="LunchCheckController">
+  
+        
         <h1>Lunch Checker</h1>
-        <div class="row text-center">
+        <!-- <div class="row text-center">
             <div class="col-12">
                 <div class="ng-form-group">
                     <input id="lunch-menu" type="text"
@@ -35,9 +37,59 @@
    
             <div class="form-group message">
                 <div ng-show="!empty && checked"  ng-bind="message" class="alert alert-success">{{message}}</div>
-                <div ng-show="empty" class="alert alert-danger" ng-bind="message">{{message}}</div>
+                <div ng-show="empty" class="alert alert-danger" ng-bind="message">{{messagee}}</div>
           
+            </div> -->
+
+            <!-- <div class="row">
+                <div class="col-12">
+                  Original Value  {{ original() | rz: 'a': 'b' }}
+                </div>
+                <div class="col-12">
+                  Changed value  {{change()}}
+                </div>
+
+                
+            </div> -->
+
+            <!-- <div class="row" >
+                <div class="col-12">
+                    <input  ng-model="na">
+                    <p>{{::na}}</p>
+                </div>
+            </div> -->
+
+
+            <div class="row">
+
+                <div >Search</div> 
+                <input type="text" ng-model="search">
+                <div class="col-12">
+                    <ul>
+                        <li ng-repeat="item in l2">Name: {{item.name | filter:search }} Quantity: {{item.qty}}</li>
+                    </ul>
+
+                    <ol>
+                        <li ng-repeat="item in l1">{{item  }}</li>
+                    </ol>
+                </div>
+
+
+                <div class="col-12">
+                    <input type="text" ng-model="nameitem" >
+                    <input type="text" ng-model="qitem">
+                    <button ng-click="Add_to_cart()">Add</button>
+                </div>
             </div>
+      </div>
+
+      <div ng-controller="Pctrl as parent">
+          Parent value: {{parent.value}}
+
+          <div ng-controller="Cctrl as child">
+              Child Value: {{child.value}}
+              Parent value: {{parent.value}}
+          </div>
       </div>
    
   
