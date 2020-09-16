@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="container bg-light" ng-app="SLCO">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h4>Shopping List Check off</h4>
+                </div>
+
+
+                <div class="col-6" ng-controller="Controller1 as toBuy">
+                    <h4>Items To Buy</h4>
+                    <ol>
+                        <li ng-repeat="item in toBuy.items">
+                            <div class="row">
+                                <div class="col-7">
+                                    Buy {{item.qty}} {{item.name}}
+                                </div>
+                                <div class="col-4">
+                                    <button ng-click="toBuy.buyItem($index)" class="btn btn-secondary"> <span>Buy</span></button>
+                                </div>
+                            </div>
+                            <br>
+                            
+                         
+                           
+                        </li>
+
+                    </ol>
+
+                    <div ng-if="toBuy.items.length === 0" class="font-weight-bold">Everything is bought</div>
+
+                </div>
+
+
+                <div class="col-6 text-center" ng-controller="Controller2 as Bought">
+                    <h4>Items Bought</h4>
+                    <ol >
+                        <li ng-repeat="item in Bought.items" >
+                            Bought {{item.qty}} of {{item.name}}
+
+                        </li>
+
+                        <div ng-if="Bought.items.length === 0" class="font-weight-bold text-center">
+                            Nothing bought yet
+                        </div>
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+      
+    </body>
+</html>
